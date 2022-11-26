@@ -15,6 +15,7 @@ public class StationController {
 
     @PostMapping
     public void addStation(@RequestParam int stationId,@RequestParam String name){
+        stationService.addStation(stationId,name);
 
     }
 

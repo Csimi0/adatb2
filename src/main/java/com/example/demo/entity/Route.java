@@ -1,23 +1,24 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Route {
+    @Id
     private int routeId;
-    @OneToMany
+    @ManyToOne
     private Station end;
-    @OneToMany
+    @ManyToOne
     private Station start;
-    @OneToMany
+    @ManyToMany
     private List<Stop> stop;
 
 }

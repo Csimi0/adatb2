@@ -10,7 +10,9 @@ import org.hibernate.annotations.NotFound;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 
 @Service
@@ -21,9 +23,9 @@ import java.util.List;
 public class DriverService {
     private final VehicleRepository vehicleRepository;
     private final DriverRepository driverRepository;
-    public void addDriver(String driverId, int age, String firstname, String surname, String licencePlate)  {
+    public void addDriver(String driverId, int age, String firstName, String sureName, String licencePlate)  {
         Vehicle vehicle = vehicleRepository.findById(licencePlate).orElseThrow(RuntimeException::new);
-        Driver driver = new Driver(driverId,age,firstname,surname,vehicle);
+        Driver driver = new Driver(driverId,age,firstName,sureName,vehicle);
         driverRepository.save(driver);
     }
     public List<String> findAllDriverByVehicleType(String type){

@@ -19,6 +19,6 @@ public class Route {
     @ManyToOne
     private Station start;
     @ManyToMany
-    private List<Stop> stop;
+    private List<Station> stations;
 
 }

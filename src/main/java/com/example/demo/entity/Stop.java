@@ -15,8 +15,7 @@ import java.sql.Time;
 public class Stop {
     @Id
     private int stopId;
-    private Time arrival;
-    private Time departure;
-    @OneToOne
-    private Station station;
+
+
+
 }

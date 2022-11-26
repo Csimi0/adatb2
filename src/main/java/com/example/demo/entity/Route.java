@@ -14,10 +14,6 @@ import java.util.List;
 public class Route {
     @Id
     private int routeId;
-    @ManyToOne
-    private Station end;
-    @ManyToOne
-    private Station start;
     @ManyToMany
     private List<Station> stations;
 

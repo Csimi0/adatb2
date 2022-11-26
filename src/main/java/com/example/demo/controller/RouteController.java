@@ -17,9 +17,7 @@ public class RouteController {
 
     @PostMapping
     public void addRoute(@RequestParam int routeId,
-                         @RequestParam int endStationId,
-                         @RequestParam int startStationId,
-                         @RequestParam List<Integer> stopId){
-        routeService.addRoute(routeId,endStationId,startStationId,stopId);
+                         @RequestParam List<Integer> stations){
+        routeService.addRoute(routeId,stations);
     }
 }

@@ -16,7 +16,7 @@ public class StationController {
     private final StationService stationService;
 
     @PostMapping
-    public void addStation(@RequestParam int stationId,@RequestParam boolean isEndStation,@RequestParam boolean isStartStation,@RequestParam String name,@RequestParam Time arrival,@RequestParam Time departure){
+    public void addStation(@RequestParam int stationId,@RequestParam boolean isEndStation,@RequestParam boolean isStartStation,@RequestParam String name,@RequestParam(required = false)  Time arrival,@RequestParam(required = false)  Time departure){
         stationService.addStation(stationId, isEndStation,isStartStation,name,arrival,departure);
 
     }

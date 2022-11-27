@@ -29,6 +29,16 @@ public class StationService {
                 .setParameter(6,departure)
                 .executeUpdate();
     }
+    public void updateStationById(int stationId, Boolean isEndStation, Boolean isStartStation , String name, Time arrival,Time departure){
+        entityManager.createNativeQuery("UPDATE station SET  is_end_station = IFNULL(?,is_end_station),is_start_station = IFNULL(?,is_start_station), name = IFNULL(?,name),arrival = IFNULL(?,arrival),departure = IFNULL(?,departure) WHERE station_id = ? ")
+                .setParameter(1,isEndStation)
+                .setParameter(2,isStartStation)
+                .setParameter(3,name)
+                .setParameter(4,arrival)
+                .setParameter(5,departure)
+                .setParameter(6,stationId)
+                .executeUpdate();
+    }
     public void deleteStationById(int stationId){
         entityManager.createNativeQuery("DELETE FROM station WHERE station_id=?").setParameter(1,stationId).executeUpdate();
     }

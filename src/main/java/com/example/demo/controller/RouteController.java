@@ -2,12 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.service.RouteService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("route")
@@ -16,8 +11,12 @@ public class RouteController {
     private final RouteService routeService;
 
     @PostMapping
-    public void addRoute(@RequestParam int routeId,
-                         @RequestParam List<Integer> stations){
-        routeService.addRoute(routeId,stations);
+    public void addRoute(@RequestParam String routeId,
+                         @RequestParam String stationId){
+        routeService.addRouteStations(routeId,stationId);
+    }
+    @DeleteMapping
+    public void deleteRouteById(@RequestParam int routeId){
+        routeService.deleteRouteById(routeId);
     }
 }

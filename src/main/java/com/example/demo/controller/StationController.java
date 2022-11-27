@@ -2,10 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.service.StationService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.Time;
 
@@ -16,9 +13,13 @@ public class StationController {
     private final StationService stationService;
 
     @PostMapping
-    public void addStation(@RequestParam int stationId,@RequestParam boolean isEndStation,@RequestParam boolean isStartStation,@RequestParam String name,@RequestParam(required = false)  Time arrival,@RequestParam(required = false)  Time departure){
+    public void addStation(@RequestParam int stationId,@RequestParam int isEndStation,@RequestParam int isStartStation,@RequestParam String name,@RequestParam(required = false)  Time arrival,@RequestParam(required = false)  Time departure){
         stationService.addStation(stationId, isEndStation,isStartStation,name,arrival,departure);
 
     }
 
+    @DeleteMapping
+    public void deleteStationById(@RequestParam int stationId){
+        stationService.deleteStationById(stationId);
+    }
 }

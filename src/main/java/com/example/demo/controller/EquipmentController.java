@@ -20,6 +20,15 @@ public class EquipmentController {
                              @RequestParam String licencePlate) {
         equipmentService.addEquipment(equipmentId, hasTicketMachine, hasWifi, hasDigitalTracker, hasLowFloor, licencePlate);
     }
+    @PatchMapping
+    public void updateDriver(@RequestParam int equipmentId,
+                             @RequestParam(required = false) boolean hasTicketMachine,
+                             @RequestParam(required = false) boolean hasWifi,
+                             @RequestParam(required = false) boolean hasDigitalTracker,
+                             @RequestParam(required = false) boolean hasLowFloor,
+                             @RequestParam(required = false) String licencePlate){
+        equipmentService.updateEquipmentById(equipmentId, hasTicketMachine, hasWifi, hasDigitalTracker,hasLowFloor, licencePlate);
+    }
 
     @DeleteMapping
     public void deleteEquipmentById(@RequestParam int equipmentId) {

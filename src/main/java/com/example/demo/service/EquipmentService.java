@@ -31,6 +31,17 @@ public class EquipmentService {
                 .setParameter(6,licencePlate)
                 .executeUpdate();
     }
+    public void updateEquipmentById(int equipmentId, boolean hasTicketMachine, boolean hasWifi, boolean hasDigitalTracker, boolean hasLowFloor, String licencePlate){
+        entityManager.createNativeQuery("UPDATE equipment SET has_digital_tracker = IFNULL(?,has_digital_tracker),has_low_floor = IFNULL(?,has_low_floor),has_ticket_machine = IFNULL(?,has_ticket_machine),has_wifi = IFNULL(?,has_wifi),vehicle_licence_plate = IFNULL(?,vehicle_licence_plate) WHERE equipment_id = ? ")
+                .setParameter(1,hasDigitalTracker)
+                .setParameter(2,hasLowFloor)
+                .setParameter(3,hasTicketMachine)
+                .setParameter(4,hasWifi)
+                .setParameter(5,licencePlate)
+                .setParameter(6,equipmentId)
+                .executeUpdate();
+        //a vehicle licence plate nem megy
+    }
     public void deleteEquipmentById(int equipmentId){
         entityManager.createNativeQuery("DELETE FROM equipment WHERE equipment_id=?").setParameter(1,equipmentId).executeUpdate();
     }

@@ -16,18 +16,16 @@ public class EquipmentController {
                              @RequestParam boolean hasTicketMachine,
                              @RequestParam boolean hasWifi,
                              @RequestParam boolean hasDigitalTracker,
-                             @RequestParam boolean hasLowFloor,
-                             @RequestParam String licencePlate) {
-        equipmentService.addEquipment(equipmentId, hasTicketMachine, hasWifi, hasDigitalTracker, hasLowFloor, licencePlate);
+                             @RequestParam boolean hasLowFloor) {
+        equipmentService.addEquipment(equipmentId, hasTicketMachine, hasWifi, hasDigitalTracker, hasLowFloor);
     }
     @PatchMapping
     public void updateDriver(@RequestParam int equipmentId,
                              @RequestParam(required = false) boolean hasTicketMachine,
                              @RequestParam(required = false) boolean hasWifi,
                              @RequestParam(required = false) boolean hasDigitalTracker,
-                             @RequestParam(required = false) boolean hasLowFloor,
-                             @RequestParam(required = false) String licencePlate){
-        equipmentService.updateEquipmentById(equipmentId, hasTicketMachine, hasWifi, hasDigitalTracker,hasLowFloor, licencePlate);
+                             @RequestParam(required = false) boolean hasLowFloor){
+        equipmentService.updateEquipmentById(equipmentId, hasTicketMachine, hasWifi, hasDigitalTracker,hasLowFloor);
     }
 
     @DeleteMapping

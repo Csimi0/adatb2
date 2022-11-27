@@ -21,24 +21,22 @@ public class EquipmentService {
     @PersistenceContext
     EntityManager entityManager;
 
-    public void addEquipment(int equipmentId, boolean hasTicketMachine, boolean hasWifi, boolean hasDigitalTracker, boolean hasLowFloor, String licencePlate) {
-        entityManager.createNativeQuery("INSERT into equipment VALUES (?,?,?,?,?,?)")
+    public void addEquipment(int equipmentId, boolean hasTicketMachine, boolean hasWifi, boolean hasDigitalTracker, boolean hasLowFloor) {
+        entityManager.createNativeQuery("INSERT into equipment VALUES (?,?,?,?,?)")
                 .setParameter(1,equipmentId)
                 .setParameter(2,hasTicketMachine)
                 .setParameter(3,hasWifi)
                 .setParameter(4,hasDigitalTracker)
                 .setParameter(5,hasLowFloor)
-                .setParameter(6,licencePlate)
                 .executeUpdate();
     }
-    public void updateEquipmentById(int equipmentId, boolean hasTicketMachine, boolean hasWifi, boolean hasDigitalTracker, boolean hasLowFloor, String licencePlate){
-        entityManager.createNativeQuery("UPDATE equipment SET has_digital_tracker = IFNULL(?,has_digital_tracker),has_low_floor = IFNULL(?,has_low_floor),has_ticket_machine = IFNULL(?,has_ticket_machine),has_wifi = IFNULL(?,has_wifi),vehicle_licence_plate = IFNULL(?,vehicle_licence_plate) WHERE equipment_id = ? ")
+    public void updateEquipmentById(int equipmentId, boolean hasTicketMachine, boolean hasWifi, boolean hasDigitalTracker, boolean hasLowFloor){
+        entityManager.createNativeQuery("UPDATE equipment SET has_digital_tracker = IFNULL(?,has_digital_tracker),has_low_floor = IFNULL(?,has_low_floor),has_ticket_machine = IFNULL(?,has_ticket_machine),has_wifi = IFNULL(?,has_wifi) WHERE equipment_id = ? ")
                 .setParameter(1,hasDigitalTracker)
                 .setParameter(2,hasLowFloor)
                 .setParameter(3,hasTicketMachine)
                 .setParameter(4,hasWifi)
-                .setParameter(5,licencePlate)
-                .setParameter(6,equipmentId)
+                .setParameter(5,equipmentId)
                 .executeUpdate();
         //a vehicle licence plate nem megy
     }

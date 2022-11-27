@@ -21,7 +21,4 @@ public class Equipment {
     private boolean hasWifi;
     private boolean hasDigitalTracker;
     private boolean hasLowFloor;
-    @ManyToOne
-    private Vehicle vehicle;
-
 }

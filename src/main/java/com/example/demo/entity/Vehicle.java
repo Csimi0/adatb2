@@ -16,5 +16,7 @@ public class Vehicle {
     private String type;
     @ManyToOne
     private Route route;
+    @ManyToOne
+    private Equipment equipment;
 
 }

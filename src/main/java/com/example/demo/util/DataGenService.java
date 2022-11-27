@@ -22,7 +22,19 @@ public class DataGenService {
                         "  VALUES ('2',false,false,'Csillagtér','16:08:08','16:08:08') on duplicate key update station_id = '2'")
                 .executeUpdate();
         entityManager.createNativeQuery("INSERT into station(station_id,is_end_station,is_start_station,name,arrival,departure)" +
-                        "  VALUES ('3',true,false,'Klinikák','16:20:05','16:20:05') on duplicate key update station_id = '3'")
+                        "  VALUES ('3',true,false,'Fecske utca','16:10:10','16:10:10') on duplicate key update station_id = '3'")
+                .executeUpdate();
+        entityManager.createNativeQuery("INSERT into station(station_id,is_end_station,is_start_station,name,arrival,departure)" +
+                        "  VALUES ('4',false,false,'Sándor utca','16:14:00','16:14:05') on duplicate key update station_id = '4'")
+                .executeUpdate();
+        entityManager.createNativeQuery("INSERT into station(station_id,is_end_station,is_start_station,name,arrival,departure)" +
+                        "  VALUES ('5',true,false,'Szt Istvan Tér','16:16:00','16:16:05') on duplicate key update station_id = '5'")
+                .executeUpdate();
+        entityManager.createNativeQuery("INSERT into station(station_id,is_end_station,is_start_station,name,arrival,departure)" +
+                        "  VALUES ('6',true,false,'Dugonics tér','16:18:00','16:18:05') on duplicate key update station_id = '6'")
+                .executeUpdate();
+        entityManager.createNativeQuery("INSERT into station(station_id,is_end_station,is_start_station,name,arrival,departure)" +
+                        "  VALUES ('7',true,false,'Klinikák','16:20:05','16:21:05') on duplicate key update station_id = '7'")
                 .executeUpdate();
 
     }
@@ -43,6 +55,18 @@ public class DataGenService {
                 .executeUpdate();
         entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
                         "VALUES('1','3') on duplicate key update route_route_id = '1'; ")
+                .executeUpdate();
+        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
+                        "VALUES('1','4') on duplicate key update route_route_id = '1'; ")
+                .executeUpdate();
+        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
+                        "VALUES('1','5') on duplicate key update route_route_id = '1'; ")
+                .executeUpdate();
+        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
+                        "VALUES('1','6') on duplicate key update route_route_id = '1'; ")
+                .executeUpdate();
+        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
+                        "VALUES('1','7') on duplicate key update route_route_id = '1'; ")
                 .executeUpdate();
     }
     public void createEquipmentData(){

@@ -45,4 +45,11 @@ public class RouteController {
         return modelAndView;
 
     }
+    @GetMapping
+    public ModelAndView selectAll(Model model){
+        model.addAttribute("routes",routeService.selectAll());
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("routes.html");
+        return modelAndView;
+    }
 }

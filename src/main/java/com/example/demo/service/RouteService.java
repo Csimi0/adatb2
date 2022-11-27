@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import com.example.demo.entity.Route;
+import com.example.demo.entity.Vehicle;
 import com.example.demo.repository.RouteRepository;
 import com.example.demo.repository.StationRepository;
 import jakarta.persistence.EntityManager;
@@ -7,6 +9,8 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @Transactional
@@ -49,5 +53,8 @@ public class RouteService {
 
     public Integer countRouteWithWifi(){
         return routeRepository.countVehicleWithWifi();
+    }
+    public List<Route> selectAll(){
+        return routeRepository.selectAll();
     }
 }

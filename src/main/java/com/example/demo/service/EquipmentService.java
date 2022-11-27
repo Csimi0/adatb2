@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import com.example.demo.repository.VehicleRepository;
 
+import java.util.List;
+
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -42,5 +44,8 @@ public class EquipmentService {
     }
     public void deleteEquipmentById(int equipmentId){
         entityManager.createNativeQuery("DELETE FROM equipment WHERE equipment_id=?").setParameter(1,equipmentId).executeUpdate();
+    }
+    public List<Equipment> selectAll(){
+        return equipmentRepository.selectAll();
     }
 }

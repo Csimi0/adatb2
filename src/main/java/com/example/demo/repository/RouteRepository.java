@@ -1,12 +1,19 @@
 package com.example.demo.repository;
 
 import com.example.demo.entity.Route;
+import com.example.demo.entity.Vehicle;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface RouteRepository extends JpaRepository<Route, Integer>{
+
+    @Query(value = "Select * From route",nativeQuery = true)
+    List<Route> selectAll();
+
     @Query(value ="SELECT COUNT(stations_station_id) " +
             " FROM route_stations " +
             " where route_route_id = '1' " +

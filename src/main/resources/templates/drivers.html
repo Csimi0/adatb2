@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+<body>
+
+<div class ="container">
+  <div class = "row">
+    <h1> List Drivers </h1>
+  </div>
+  <table class = "table table-striped table-bordered">
+    <thead class = "table-dark">
+    <tr>
+      <th> Driver ID</th>
+      <th> Age</th>
+      <th> SurName </th>
+      <th> Firstname </th>
+      <th> Licence Plate </th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each = "driver: ${drivers}">
+      <td th:text = "${driver.driverId}"></td>
+      <td th:text = "${driver.age}"></td>
+      <td th:text = "${driver.sureName}"></td>
+      <td th:text = "${driver.firstName}"></td>
+      <td th:text = "${driver.vehicle.licencePlate}"></td>
+
+
+      <td>
+        <a th:href = "@{/drivers/delete(driverId=${driver.driverId})  }"class = "btn btn-danger">Delete</a>
+      </td>
+    </tr>
+    </tbody>
+
+  </table>
+</div>
+<div>
+  <h1>Create New Driver</h1>
+
+
+  <form method="post" th:action="@{/drivers}"  >
+
+    <input id="driverId " placeholder="Driver ID" required type="text" name="driverId"/>
+    <input id="age" placeholder="Age" required type="text" name="age"/>
+    <input id="sureName" placeholder="Surname" required type="text" name="sureName"/>
+    <input id="firstName" placeholder="Firstname" required type="text" name="firstName"/>
+    <input id="licencePlate" placeholder="Licence Plate" required type="text" name="licencePlate"/>
+    <input type="submit" value="Create Driver">
+  </form>
+</div>
+<div>
+  <h1>Update Driver By ID</h1>
+
+  <form method="post" action="drivers/update"  >
+    <input id="updatedriverId " placeholder="Driver ID" required type="text" name="driverId"/>
+    <input id="updateage" placeholder="Age" required type="text" name="age"/>
+    <input id="updatesureName" placeholder="Surname" required type="text" name="sureName"/>
+    <input id="updatefirstName" placeholder="Firstname" required type="text" name="firstName"/>
+    <input id="updatelicencePlate" placeholder="Licence Plate" required type="text" name="licencePlate"/>
+    <input  type="submit" value="Update Driver ">
+  </form>
+
+</div>
+<div class ="container">
+  <div>
+    <button onclick="window.location.href='http://localhost:8080/drivers/by-SZJA';">
+      List SZJA Free Drivers
+    </button>
+  </div>
+  <div>
+    <button onclick="window.location.href='http://localhost:8080/drivers/bus-drivers';">
+      List Bus Drivers
+    </button>
+  </div>
+</div>
+</body>
+<script>
+
+</script>
+</html>

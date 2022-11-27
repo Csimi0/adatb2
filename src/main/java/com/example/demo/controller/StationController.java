@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.Station;
 import com.example.demo.service.RouteService;
 import com.example.demo.service.StationService;
 import lombok.RequiredArgsConstructor;
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.sql.Time;
-import java.util.List;
 
 @RestController
 @RequestMapping("stations")
@@ -28,20 +26,17 @@ public class StationController {
     }
 
     @GetMapping("/delete")
-    public String deleteStationById(@RequestParam int stationId){
+    public void deleteStationById(@RequestParam int stationId){
         stationService.deleteStationById(stationId);
-        return "redirect:/stations";
     }
 
 
     @GetMapping
-    public ModelAndView selectStation(Model model){
+    public ModelAndView selectAll(Model model){
         model.addAttribute("stations",stationService.basicSelectStation());
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("stations.html");
         return modelAndView;
-
-
     }
 //    @RestController
 //    public class MyRestController {

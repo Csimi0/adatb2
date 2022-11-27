@@ -4,7 +4,9 @@ import com.example.demo.entity.Vehicle;
 import com.example.demo.service.DriverService;
 import com.example.demo.service.VehicleService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping("vehicle")
@@ -24,4 +26,12 @@ public class VehicleController {
     public void deleteVehicleById(@RequestParam String licencePlate){
         vehicleService.deleteVehicleById(licencePlate);
     }
+    @GetMapping
+    public ModelAndView selectAll(Model model){
+        model.addAttribute("vehicles",vehicleService.selectAll());
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("vehicles.html");
+        return modelAndView;
+    }
 }
+

@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.Driver;
+import com.example.demo.entity.Station;
 import com.example.demo.entity.Vehicle;
 import com.example.demo.repository.DriverRepository;
 import com.example.demo.repository.VehicleRepository;
@@ -52,6 +53,10 @@ public class DriverService {
     public List<String> findAllSZJACompatibleDriver(){
       return  driverRepository.findAllSZJACompatibleDriver();
     }
+    public List<Driver> selectAll(){
+        return driverRepository.selectAll();
+    }
+
 
 
 

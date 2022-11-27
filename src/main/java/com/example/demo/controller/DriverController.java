@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @RestController
-@RequestMapping("driver")
+@RequestMapping("drivers")
 @RequiredArgsConstructor
 
 public class DriverController {
@@ -20,17 +20,17 @@ public class DriverController {
     public void addDriver(@RequestParam String driverId, @RequestParam int age, @RequestParam String firstName, @RequestParam String sureName, @RequestParam String licencePlate) {
         driverService.addDriver(driverId, age, firstName, sureName, licencePlate);
     }
-    @PatchMapping
+    @PostMapping("/update")
     public void updateDriver(@RequestParam String driverId, @RequestParam(required = false) Integer age, @RequestParam(required = false) String firstName, @RequestParam(required = false) String sureName, @RequestParam(required = false) String licencePlate){
         driverService.updateDriverById(driverId, age, firstName, sureName, licencePlate);
     }
 
-    @DeleteMapping
+    @GetMapping("/delete")
     public void deleteDriverById(@RequestParam String driverId){
         driverService.deleteDriverById(driverId);
     }
 
-    @GetMapping("by-vehicle-type")
+    @GetMapping("bus-drivers")
     public ModelAndView findAllDriverByVehicleType(Model model) {
         model.addAttribute("drivers",driverService.findAllDriverByVehicleType());
         ModelAndView modelAndView = new ModelAndView();
@@ -42,6 +42,13 @@ public class DriverController {
         model.addAttribute("names",driverService.findAllSZJACompatibleDriver());
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("SZJA.html");
+        return modelAndView;
+    }
+    @GetMapping
+    public ModelAndView selectAll(Model model){
+        model.addAttribute("drivers",driverService.selectAll());
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("drivers.html");
         return modelAndView;
     }
 

@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.entity.Driver;
 import com.example.demo.entity.Vehicle;
 import com.example.demo.repository.VehicleRepository;
 import jakarta.persistence.EntityManager;
@@ -8,11 +9,14 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Transactional
 @RequiredArgsConstructor
 
 public class VehicleService {
+    private final VehicleRepository vehicleRepository;
     @PersistenceContext
     EntityManager entityManager;
     public void addVehicle(String licencePlate, String type, String routeId,int equipmentId){
@@ -34,5 +38,8 @@ public class VehicleService {
     }
     public void deleteVehicleById(String licencePlate){
         entityManager.createNativeQuery("DELETE FROM vehicle WHERE licence_plate=?").setParameter(1,licencePlate).executeUpdate();
+    }
+    public List<Vehicle> selectAll(){
+        return vehicleRepository.selectAll();
     }
 }

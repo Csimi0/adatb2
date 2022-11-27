@@ -32,12 +32,11 @@ public class RouteService {
                 .setParameter(3,routeId)
                 .executeUpdate();
     }
-
-    public void updateRouteById(String routeId, String stationId){
-        entityManager.createNativeQuery("UPDATE route SET  age = IFNULL(?,age),first_name = IFNULL(?,first_name),sure_name = IFNULL(?,sure_name),vehicle_licence_plate = IFNULL(?,vehicle_licence_plate) WHERE driver_id = ? ")
-                .setParameter(1,routeId)
-                .setParameter(2,stationId)
-
+    public void updateRouteStationsById(String routeId, String stationId,String updatedStationId){
+        entityManager.createNativeQuery("UPDATE route_stations SET stations_station_id = IFNULL(?,stations_station_id) WHERE route_route_id = ? AND stations_station_id = ? ")
+                .setParameter(1,updatedStationId)
+                .setParameter(2,routeId)
+                .setParameter(3,stationId)
                 .executeUpdate();
     }
     public void deleteRouteById(int routeId){

@@ -8,6 +8,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.sql.Time;
+import java.util.List;
 
 @Service
 @Transactional
@@ -40,6 +41,10 @@ public class StationService {
                 .executeUpdate();
     }
     public void deleteStationById(int stationId){
+        entityManager.createNativeQuery("DELETE FROM route_stations WHERE stations_station_id = ?").setParameter(1,stationId).executeUpdate();
         entityManager.createNativeQuery("DELETE FROM station WHERE station_id=?").setParameter(1,stationId).executeUpdate();
+    }
+    public List<Station> basicSelectStation(){
+        return stationRepository.selectAllStation();
     }
 }

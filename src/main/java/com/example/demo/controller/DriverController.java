@@ -3,6 +3,7 @@ package com.example.demo.controller;
 
 import com.example.demo.service.DriverService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -30,10 +31,14 @@ public class DriverController {
     public void deleteDriverById(@RequestParam String driverId){
         driverService.deleteDriverById(driverId);
     }
+
     @GetMapping("by-SZJA")
-    public List<String> findAllSZJACompatibleDriver() {
-        return driverService.findAllSZJACompatibleDriver();
+    public String findAllSZJACompatibleDriver(Model model) {
+        model.addAttribute("names",driverService.findAllSZJACompatibleDriver());
+        return "namesBySZJA";
     }
+
+
 
 
 }

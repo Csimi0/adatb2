@@ -13,10 +13,11 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@OnDelete(action = OnDeleteAction.CASCADE)
 public class Route {
     @Id
     private int routeId;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Station> stations;
 

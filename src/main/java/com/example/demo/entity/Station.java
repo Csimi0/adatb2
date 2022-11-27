@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.sql.Time;
 
@@ -11,6 +13,7 @@ import java.sql.Time;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@OnDelete(action = OnDeleteAction.CASCADE)
 public class Station {
     @Id
     private int stationId;

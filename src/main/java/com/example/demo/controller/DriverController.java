@@ -28,8 +28,8 @@ public class DriverController {
     }
 
     @GetMapping("by-vehicle-type")
-    public ResponseEntity<List<String>> findAllDriverByVehicleType(@RequestParam String type) {
-        return ResponseEntity.ok(driverService.findAllDriverByVehicleType(type));
+    public List<String> findAllDriverByVehicleType(@RequestParam String type) {
+        return driverService.findAllDriverByVehicleType(type);
     }
     @DeleteMapping
     public void deleteDriverById(@RequestParam String driverId){

@@ -30,7 +30,6 @@ public class StationController {
         stationService.deleteStationById(stationId);
     }
 
-
     @GetMapping
     public ModelAndView selectAll(Model model){
         model.addAttribute("stations",stationService.basicSelectStation());
@@ -38,13 +37,4 @@ public class StationController {
         modelAndView.setViewName("stations.html");
         return modelAndView;
     }
-//    @RestController
-//    public class MyRestController {
-//        @RequestMapping("/")
-//        public ModelAndView welcome() {
-//            ModelAndView modelAndView = new ModelAndView();
-//            modelAndView.setViewName("login.html");
-//            return modelAndView;
-//        }
-//    }
 }

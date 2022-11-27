@@ -46,8 +46,8 @@ public class DriverService {
                 .setParameter(5,driverId)
                 .executeUpdate();
     }
-    public List<String> findAllDriverByVehicleType(String type){
-       return driverRepository.findAllDriverByVehicleType(type);
+    public List<String> findAllDriverByVehicleType(){
+       return driverRepository.findAllDriverByVehicleType();
     }
     public List<String> findAllSZJACompatibleDriver(){
       return  driverRepository.findAllSZJACompatibleDriver();

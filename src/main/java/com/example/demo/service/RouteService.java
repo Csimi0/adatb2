@@ -43,11 +43,11 @@ public class RouteService {
         entityManager.createNativeQuery("DELETE FROM route WHERE route_id = (?)").setParameter(1,routeId).executeUpdate();
     }
 
-    public int findCountStationForRoute(int routeId){
-        return routeRepository.findCountStationForRoute(routeId);
+    public int findCountStationForRoute(){
+        return routeRepository.findCountStationForRoute();
     }
 
-    public Integer countRouteWithWifi(Boolean hasWifi){
-        return routeRepository.countRouteWithWifi(hasWifi);
+    public Integer countRouteWithWifi(){
+        return routeRepository.countVehicleWithWifi();
     }
 }

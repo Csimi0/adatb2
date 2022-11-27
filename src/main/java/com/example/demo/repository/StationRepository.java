@@ -12,9 +12,6 @@ import java.util.List;
 @Repository
 public interface StationRepository extends JpaRepository<Station, Integer> {
 
-  /*  @Query(value = "INSERT into vehicle VALUES ('asd143','auto','2')",nativeQuery = true)
-    Integer insertIntoVehicle();
-*/
     @Query(value = "Select * From station",nativeQuery = true)
     List<Station> selectAllStation();
 

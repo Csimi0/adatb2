@@ -5,6 +5,8 @@ import com.example.demo.service.DriverService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
 import java.util.List;
 
 @RestController
@@ -23,19 +25,24 @@ public class DriverController {
         driverService.updateDriverById(driverId, age, firstName, sureName, licencePlate);
     }
 
-    @GetMapping("by-vehicle-type")
-    public List<String> findAllDriverByVehicleType(@RequestParam String type) {
-        return driverService.findAllDriverByVehicleType(type);
-    }
     @DeleteMapping
     public void deleteDriverById(@RequestParam String driverId){
         driverService.deleteDriverById(driverId);
     }
 
+    @GetMapping("by-vehicle-type")
+    public ModelAndView findAllDriverByVehicleType(Model model) {
+        model.addAttribute("drivers",driverService.findAllDriverByVehicleType());
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("vehicletype.html");
+        return modelAndView;
+    }
     @GetMapping("by-SZJA")
-    public String findAllSZJACompatibleDriver(Model model) {
+    public ModelAndView findAllSZJACompatibleDriver(Model model) {
         model.addAttribute("names",driverService.findAllSZJACompatibleDriver());
-        return "namesBySZJA";
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("SZJA.html");
+        return modelAndView;
     }
 
 

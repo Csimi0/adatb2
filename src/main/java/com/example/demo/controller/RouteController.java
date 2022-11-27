@@ -2,7 +2,9 @@ package com.example.demo.controller;
 
 import com.example.demo.service.RouteService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping("route")
@@ -25,12 +27,22 @@ public class RouteController {
     public void deleteRouteById(@RequestParam int routeId){
         routeService.deleteRouteById(routeId);
     }
+
     @GetMapping("count-stations")
-    public int findCountStationForRoute(@RequestParam int routeId){
-        return routeService.findCountStationForRoute(routeId);
+    public ModelAndView findCountStationForRoute(Model model){
+        model.addAttribute("stations",routeService.findCountStationForRoute());
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("countstations.html");
+        return modelAndView;
+
     }
-    @GetMapping("count-route-with-wifi")
-    public Integer countRouteWithWifi(@RequestParam Boolean hasWifi){
-        return routeService.countRouteWithWifi(hasWifi);
+
+    @GetMapping("count-vehicle-with-wifi")
+    public ModelAndView countRouteWithWifi(Model model){
+        model.addAttribute("stations",routeService.countRouteWithWifi());
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("countVehicleWithWifi.html");
+        return modelAndView;
+
     }
 }

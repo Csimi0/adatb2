@@ -12,7 +12,7 @@
 
 <div class ="container">
     <div class = "row">
-        <h1> List Students </h1>
+        <h1> List Stations </h1>
     </div>
 
 <!--    <div class = "row">-->
@@ -42,18 +42,45 @@
             <td th:text = "${station.departure}"></td>
 
             <td>
-<!--                <a th:href = "@{/students/edit/{id}(id=${})}"-->
-<!--                   class = "btn btn-primary">Update</a>-->
-
-                <a th:href = "@{/stations/{id}(id=${station.stationId})}"
-                   class = "btn btn-danger">Delete</a>
-
+                <a th:href = "@{/stations/delete(stationId=${station.stationId})  }"class = "btn btn-danger">Delete</a>
             </td>
         </tr>
         </tbody>
 
     </table>
+</div>
+<div>
+    <h1>Create New Station</h1>
+    <iframe name="hiddenFrame" width="0" height="0" border="0" style="display: none;"></iframe>
+
+    <form method="post" th:action="@{/stations}"  >
+
+        <input id="stationId " placeholder="Station ID" required type="text" name="stationId"/>
+        <input id="isEndStation" placeholder="Start Station" required type="text" name="isEndStation"/>
+        <input id="isStartStation" placeholder="End Station" required type="text" name="isStartStation"/>
+        <input id="name" placeholder="Name" required type="text" name="name"/>
+        <input id="arrival" placeholder="Arrival" required type="text" name="arrival"/>
+        <input id="departure" placeholder="Departure" required type="text" name="departure"/>
+        <input type="submit" value="Create Station">
+    </form>
+</div>
+<div>
+    <h1>Update Station By ID</h1>
+    <iframe name="hiddenFrame" width="0" height="0" border="0" style="display: none;"></iframe>
+
+    <form method="post" action="stations/update"  >
+        <input id="updatestationId " placeholder="Station ID" required type="text" name="stationId"/>
+        <input id="updateisEndStation" placeholder="Start Station" required type="text" name="isEndStation"/>
+        <input id="updateisStartStation" placeholder="End Station" required type="text" name="isStartStation"/>
+        <input id="updatename" placeholder="Name" required type="text" name="name"/>
+        <input id="updatearrival" placeholder="Arrival" required type="text" name="arrival"/>
+        <input id="updatedeparture" placeholder="Departure" required type="text" name="departure"/>
+        <input  type="submit" value="Update Station >
+    </form>
 
 </div>
 </body>
+<script>
+
+</script>
 </html>

@@ -22,15 +22,17 @@ public class StationController {
     public void addStation(@RequestParam int stationId,@RequestParam int isEndStation,@RequestParam int isStartStation,@RequestParam String name,@RequestParam(required = false)  Time arrival,@RequestParam(required = false)  Time departure){
         stationService.addStation(stationId, isEndStation,isStartStation,name,arrival,departure);
     }
-    @PatchMapping
+    @PostMapping("/update")
     public void updateStation(@RequestParam int stationId,@RequestParam(required = false) Boolean isEndStation,@RequestParam(required = false) Boolean isStartStation,@RequestParam(required = false) String name,@RequestParam(required = false)  Time arrival,@RequestParam(required = false)  Time departure){
             stationService.updateStationById(stationId, isEndStation, isStartStation, name, arrival,departure);
     }
 
-    @DeleteMapping
-    public void deleteStationById(@RequestParam int stationId){
+    @GetMapping("/delete")
+    public String deleteStationById(@RequestParam int stationId){
         stationService.deleteStationById(stationId);
+        return "redirect:/stations";
     }
+
 
     @GetMapping
     public ModelAndView selectStation(Model model){
@@ -38,6 +40,7 @@ public class StationController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("stations.html");
         return modelAndView;
+
 
     }
 //    @RestController

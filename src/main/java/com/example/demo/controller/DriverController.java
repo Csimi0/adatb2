@@ -22,7 +22,10 @@ public class DriverController {
     public void addDriver(@RequestParam String driverId, @RequestParam int age, @RequestParam String firstName, @RequestParam String sureName, @RequestParam String licencePlate) {
         driverService.addDriver(driverId, age, firstName, sureName, licencePlate);
     }
-
+    @PatchMapping
+    public void updateDriver(@RequestParam String driverId, @RequestParam(required = false) Integer age, @RequestParam(required = false) String firstName, @RequestParam(required = false) String sureName, @RequestParam(required = false) String licencePlate){
+        driverService.updateDriverById(driverId, age, firstName, sureName, licencePlate);
+    }
 
     @GetMapping("by-vehicle-type")
     public ResponseEntity<List<String>> findAllDriverByVehicleType(@RequestParam String type) {
@@ -32,4 +35,6 @@ public class DriverController {
     public void deleteDriverById(@RequestParam String driverId){
         driverService.deleteDriverById(driverId);
     }
+
+
 }

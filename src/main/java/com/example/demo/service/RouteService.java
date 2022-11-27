@@ -35,4 +35,5 @@ public class RouteService {
     public void deleteRouteById(int routeId){
         entityManager.createNativeQuery("DELETE FROM route WHERE route_id = (?)").setParameter(1,routeId).executeUpdate();
     }
+
 }

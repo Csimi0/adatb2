@@ -34,11 +34,21 @@ public class DriverService {
                 .setParameter(5,licencePlate)
                 .executeUpdate();
     }
-    public void deleteDriverById(String driverId){
+    public void deleteDriverById(String driverId ){
         entityManager.createNativeQuery("DELETE FROM driver WHERE driver_id=?").setParameter(1,driverId).executeUpdate();
+    }
+    public void updateDriverById(String driverId, Integer age, String firstName, String sureName, String licencePlate){
+        entityManager.createNativeQuery("UPDATE driver SET  age = IFNULL(?,age),first_name = IFNULL(?,first_name),sure_name = IFNULL(?,sure_name),vehicle_licence_plate = IFNULL(?,vehicle_licence_plate) WHERE driver_id = ? ")
+                .setParameter(1,age)
+                .setParameter(2,firstName)
+                .setParameter(3,sureName)
+                .setParameter(4,licencePlate)
+                .setParameter(5,driverId)
+                .executeUpdate();
     }
     public List<String> findAllDriverByVehicleType(String type){
        return driverRepository.findAllDriverByVehicleType(type);
     }
+
 
 }

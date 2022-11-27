@@ -23,6 +23,13 @@ public class VehicleService {
                 .setParameter(3,routeId)
                 .executeUpdate();
     }
+    public void updateVehicleById(String licencePlate, String type, String routeId){
+        entityManager.createNativeQuery("UPDATE vehicle SET  type = IFNULL(?,type),route_route_id = IFNULL(?,route_route_id) WHERE licence_plate = ? ")
+                .setParameter(1,type)
+                .setParameter(2,routeId)
+                .setParameter(3,licencePlate)
+                .executeUpdate();
+    }
     public void deleteVehicleById(String licencePlate){
         entityManager.createNativeQuery("DELETE FROM vehicle WHERE licence_plate=?").setParameter(1,licencePlate).executeUpdate();
     }

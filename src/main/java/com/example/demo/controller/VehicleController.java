@@ -16,6 +16,10 @@ public class VehicleController {
     public void addVehicle(@RequestParam String licencePlate,@RequestParam String type, @RequestParam(required = false) String routeId ){
         vehicleService.addVehicle(licencePlate,type,routeId);
     }
+    @PatchMapping
+    public void updateVehicle(@RequestParam String licencePlate,@RequestParam(required = false) String type, @RequestParam(required = false) String routeId ){
+        vehicleService.updateVehicleById(licencePlate, type, routeId);
+    }
     @DeleteMapping
     public void deleteVehicleById(@RequestParam String licencePlate){
         vehicleService.deleteVehicleById(licencePlate);

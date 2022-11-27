@@ -25,4 +25,12 @@ public class RouteController {
     public void deleteRouteById(@RequestParam int routeId){
         routeService.deleteRouteById(routeId);
     }
+    @GetMapping("count-stations")
+    public int findCountStationForRoute(@RequestParam int routeId){
+        return routeService.findCountStationForRoute(routeId);
+    }
+    @GetMapping("count-route-with-wifi")
+    public Integer countRouteWithWifi(@RequestParam Boolean hasWifi){
+        return routeService.countRouteWithWifi(hasWifi);
+    }
 }

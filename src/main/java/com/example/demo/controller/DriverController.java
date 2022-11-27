@@ -35,6 +35,10 @@ public class DriverController {
     public void deleteDriverById(@RequestParam String driverId){
         driverService.deleteDriverById(driverId);
     }
+    @GetMapping("by-SZJA")
+    public List<String> findAllSZJACompatibleDriver() {
+        return driverService.findAllSZJACompatibleDriver();
+    }
 
 
 }

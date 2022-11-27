@@ -49,6 +49,9 @@ public class DriverService {
     public List<String> findAllDriverByVehicleType(String type){
        return driverRepository.findAllDriverByVehicleType(type);
     }
+    public List<String> findAllSZJACompatibleDriver(){
+      return  driverRepository.findAllSZJACompatibleDriver();
+    }
 
 
 

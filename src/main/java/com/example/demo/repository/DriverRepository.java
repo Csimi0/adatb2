@@ -14,8 +14,12 @@ public interface DriverRepository extends JpaRepository<Driver, String> {
 
     @Query(value = "Select * From driver",nativeQuery = true)
     List<Driver> selectAll();
-    
-    @Query(value = "SELECT CONCAT(driver.sure_name,' ',driver.first_name) FROM driver LEFT JOIN vehicle ON driver.vehicle_licence_plate = vehicle.licence_plate WHERE vehicle.type = 'Busz'",nativeQuery = true)
+
+    @Query(value = "SELECT CONCAT(driver.sure_name,' ',driver.first_name)" +
+            " FROM driver " +
+            "LEFT JOIN vehicle " +
+            "ON driver.vehicle_licence_plate = vehicle.licence_plate " +
+            "WHERE vehicle.type = 'Busz'",nativeQuery = true)
     List<String> findAllDriverByVehicleType();
 
     @Query(value = "SELECT CONCAT(driver.sure_name,' ',driver.first_name) " +

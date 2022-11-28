@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class VehicleController {
     private final VehicleService vehicleService;
     @PostMapping
-    public void addVehicle(@RequestParam String licencePlate,@RequestParam String type, @RequestParam(required = false) String routeId,@RequestParam(required = false) int equipmentId ){
+    public void addVehicle(@RequestParam String licencePlate,@RequestParam String type, @RequestParam(required = false) Integer routeId,@RequestParam(required = false) Integer equipmentId ){
         vehicleService.addVehicle(licencePlate,type,routeId,equipmentId);
     }
     @PostMapping("/update")

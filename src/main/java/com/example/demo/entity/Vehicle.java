@@ -18,7 +18,6 @@ public class Vehicle {
     private String licencePlate;
     private String type;
     @ManyToOne
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private Route route;
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)

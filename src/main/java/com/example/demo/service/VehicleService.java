@@ -19,7 +19,7 @@ public class VehicleService {
     private final VehicleRepository vehicleRepository;
     @PersistenceContext
     EntityManager entityManager;
-    public void addVehicle(String licencePlate, String type, String routeId,int equipmentId){
+    public void addVehicle(String licencePlate, String type, Integer routeId,Integer equipmentId){
 
         entityManager.createNativeQuery("INSERT into vehicle VALUES (?,?,?,?)")
                 .setParameter(1,licencePlate)

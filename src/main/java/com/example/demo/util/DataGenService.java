@@ -112,7 +112,7 @@ public class DataGenService {
                         "  VALUES ('32',false,false,'Károlyi u','13:20:05','12:21:05') on duplicate key update station_id = '32'")
                 .executeUpdate();
         entityManager.createNativeQuery("INSERT into station(station_id,is_end_station,is_start_station,name,arrival,departure)" +
-                        "  VALUES ('3',false,false,'Londoni krt','13:25:05','13:26:05') on duplicate key update station_id = '33'")
+                        "  VALUES ('33',false,false,'Londoni krt','13:25:05','13:26:05') on duplicate key update station_id = '33'")
                 .executeUpdate();
         entityManager.createNativeQuery("INSERT into station(station_id,is_end_station,is_start_station,name,arrival,departure)" +
                         "  VALUES ('34',false,false,'Veresács u','13:30:05','13:31:05') on duplicate key update station_id = '34'")
@@ -155,90 +155,6 @@ public class DataGenService {
         entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
                         "VALUES('1','7') on duplicate key update route_route_id = '1'; ")
                 .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('2','8') on duplicate key update route_route_id = '2'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('2','9') on duplicate key update route_route_id = '2'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('2','10') on duplicate key update route_route_id = '2'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('2','11') on duplicate key update route_route_id = '2'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('2','12') on duplicate key update route_route_id = '2'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('2','13') on duplicate key update route_route_id = '2'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('2','14') on duplicate key update route_route_id = '2'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('2','15') on duplicate key update route_route_id = '2'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('2','16') on duplicate key update route_route_id = '2'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('3','17') on duplicate key update route_route_id = '3'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('3','18') on duplicate key update route_route_id = '3'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('3','19') on duplicate key update route_route_id = '3'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('3','20') on duplicate key update route_route_id = '3'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('3','21') on duplicate key update route_route_id = '3'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('3','22') on duplicate key update route_route_id = '3'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('3','23') on duplicate key update route_route_id = '3'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('3','24') on duplicate key update route_route_id = '3'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('3','25') on duplicate key update route_route_id = '3'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('4','26') on duplicate key update route_route_id = '4'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('4','27') on duplicate key update route_route_id = '4'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('4','28') on duplicate key update route_route_id = '4'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('4','29') on duplicate key update route_route_id = '4'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('4','30') on duplicate key update route_route_id = '4'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('4','31') on duplicate key update route_route_id = '4'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('4','32') on duplicate key update route_route_id = '4'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('4','33') on duplicate key update route_route_id = '4'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('4','34') on duplicate key update route_route_id = '4'; ")
-                .executeUpdate();
-        entityManager.createNativeQuery(" INSERT IGNORE INTO route_stations   " +
-                        "VALUES('4','35') on duplicate key update route_route_id = '4'; ")
-                .executeUpdate();
 
     }
     public void createEquipmentData(){
@@ -265,23 +181,33 @@ public class DataGenService {
 
     }
     public void createVehicleData(){
-        entityManager.createNativeQuery("INSERT into vehicle VALUES ('RGB-123','Busz','1','8') on duplicate key update licence_plate = 'RGB-123'")
+        entityManager.createNativeQuery("INSERT into vehicle VALUES ('RGB-123','Busz','1','1') on duplicate key update licence_plate = 'RGB-123'")
                 .executeUpdate();
-        entityManager.createNativeQuery("INSERT into vehicle VALUES ('LST-123','Villamos','2','9') on duplicate key update licence_plate = 'LST-123'")
+        entityManager.createNativeQuery("INSERT into vehicle VALUES ('LST-123','Villamos','5','2') on duplicate key update licence_plate = 'LST-123'")
                 .executeUpdate();
-        entityManager.createNativeQuery("INSERT into vehicle VALUES ('ABC-562','Villamos','4','10') on duplicate key update licence_plate = 'ABC-562'")
+        entityManager.createNativeQuery("INSERT into vehicle VALUES ('ABC-562','Villamos','6','3') on duplicate key update licence_plate = 'ABC-562'")
                 .executeUpdate();
-        entityManager.createNativeQuery("INSERT into vehicle VALUES ('ADC-621','Busz','2','7') on duplicate key update licence_plate = 'ADC-621'")
+        entityManager.createNativeQuery("INSERT into vehicle VALUES ('ADC-621','Busz','1','4') on duplicate key update licence_plate = 'ADC-621'")
                 .executeUpdate();
-        entityManager.createNativeQuery("INSERT into vehicle VALUES ('AEC-762','Villamos','4','6') on duplicate key update licence_plate = 'AEC-762'")
+        entityManager.createNativeQuery("INSERT into vehicle VALUES ('AEC-762','Villamos','2','1') on duplicate key update licence_plate = 'AEC-762'")
                 .executeUpdate();
-        entityManager.createNativeQuery("INSERT into vehicle VALUES ('ATZ-542','Busz','2','5') on duplicate key update licence_plate = 'ATZ-542'")
+        entityManager.createNativeQuery("INSERT into vehicle VALUES ('ATZ-542','Busz','8','2') on duplicate key update licence_plate = 'ATZ-542'")
                 .executeUpdate();
-        entityManager.createNativeQuery("INSERT into vehicle VALUES ('VRT-215','Villamos','4','4') on duplicate key update licence_plate = 'VRT-215'")
+        entityManager.createNativeQuery("INSERT into vehicle VALUES ('VRT-215','Villamos','9','3') on duplicate key update licence_plate = 'VRT-215'")
                 .executeUpdate();
-        entityManager.createNativeQuery("INSERT into vehicle VALUES ('TZS-783','Busz','1','3') on duplicate key update licence_plate = 'TZS-783'")
+        entityManager.createNativeQuery("INSERT into vehicle VALUES ('TZS-783','Busz','4','4') on duplicate key update licence_plate = 'TZS-783'")
                 .executeUpdate();
-        entityManager.createNativeQuery("INSERT into vehicle VALUES ('GTS-592','Busz','3','2') on duplicate key update licence_plate = 'GTS-592'")
+        entityManager.createNativeQuery("INSERT into vehicle VALUES ('GTS-592','Busz','5','1') on duplicate key update licence_plate = 'GTS-592'")
+                .executeUpdate();
+        entityManager.createNativeQuery("INSERT into vehicle VALUES ('GTA-592','Busz','6','2') on duplicate key update licence_plate = 'GTA-592'")
+                .executeUpdate();
+        entityManager.createNativeQuery("INSERT into vehicle VALUES ('GTB-592','Busz','2','3') on duplicate key update licence_plate = 'GTB-592'")
+                .executeUpdate();
+        entityManager.createNativeQuery("INSERT into vehicle VALUES ('GTR-592','Busz','1','4') on duplicate key update licence_plate = 'GTR-592'")
+                .executeUpdate();
+        entityManager.createNativeQuery("INSERT into vehicle VALUES ('GTT-592','Busz','1','1') on duplicate key update licence_plate = 'GTT-592'")
+                .executeUpdate();
+        entityManager.createNativeQuery("INSERT into vehicle VALUES ('GTW-592','Busz','5','2') on duplicate key update licence_plate = 'GTW-592'")
                 .executeUpdate();
     }
     public void createDriverData(){
@@ -291,27 +217,27 @@ public class DataGenService {
                 .executeUpdate();
         entityManager.createNativeQuery("INSERT into driver VALUES ('55MV20','20','Béla','Nagy','LST-123') on duplicate key update driver_id = '55MV20'")
                 .executeUpdate();
-        entityManager.createNativeQuery("INSERT into driver VALUES ('55GS20','21','András','Nagy','LST-123') on duplicate key update driver_id = '55MV20'")
+        entityManager.createNativeQuery("INSERT into driver VALUES ('55GS20','21','András','Nagy','ABC-562') on duplicate key update driver_id = '55GS20'")
                 .executeUpdate();
-        entityManager.createNativeQuery("INSERT into driver VALUES ('52ZT20','22','István','Budai','LST-123') on duplicate key update driver_id = '55MV20'")
+        entityManager.createNativeQuery("INSERT into driver VALUES ('52ZT20','22','István','Budai','GTS-592') on duplicate key update driver_id = '52ZT20'")
                 .executeUpdate();
-        entityManager.createNativeQuery("INSERT into driver VALUES ('SHSSR20','23','Imre','Nagy','LST-123') on duplicate key update driver_id = '55MV20'")
+        entityManager.createNativeQuery("INSERT into driver VALUES ('SHSSR20','23','Imre','Nagy','VRT-215') on duplicate key update driver_id = 'SHSSR20'")
                 .executeUpdate();
-        entityManager.createNativeQuery("INSERT into driver VALUES ('UZST20','24','Ábel','Somogyi','LST-123') on duplicate key update driver_id = '55MV20'")
+        entityManager.createNativeQuery("INSERT into driver VALUES ('UZST20','24','Ábel','Somogyi','ATZ-542') on duplicate key update driver_id = 'UZST20'")
                 .executeUpdate();
-        entityManager.createNativeQuery("INSERT into driver VALUES ('25HZ20','25','Peti','Tér','LST-123') on duplicate key update driver_id = '55MV20'")
+        entityManager.createNativeQuery("INSERT into driver VALUES ('25HZ20','25','Peti','Tér','AEC-762') on duplicate key update driver_id = '25HZ20'")
                 .executeUpdate();
-        entityManager.createNativeQuery("INSERT into driver VALUES ('55JU20','26','Donát','Deák','LST-123') on duplicate key update driver_id = '55MV20'")
+        entityManager.createNativeQuery("INSERT into driver VALUES ('55JU20','26','Donát','Deák','ADC-621') on duplicate key update driver_id = '55JU20'")
                 .executeUpdate();
-        entityManager.createNativeQuery("INSERT into driver VALUES ('35GS20','27','Peti','Szűcs','LST-123') on duplicate key update driver_id = '55MV20'")
+        entityManager.createNativeQuery("INSERT into driver VALUES ('35GS20','27','Peti','Szűcs','GTA-592') on duplicate key update driver_id = '35GS20'")
                 .executeUpdate();
-        entityManager.createNativeQuery("INSERT into driver VALUES ('55SAS20','40','Bence','Nagy','LST-123') on duplicate key update driver_id = '55MV20'")
+        entityManager.createNativeQuery("INSERT into driver VALUES ('55SAS20','40','Bence','Nagy','GTB-592') on duplicate key update driver_id = '55SAS20'")
                 .executeUpdate();
-        entityManager.createNativeQuery("INSERT into driver VALUES ('45DRS20','41','Zsolti','Práth','LST-123') on duplicate key update driver_id = '55MV20'")
+        entityManager.createNativeQuery("INSERT into driver VALUES ('45DRS20','41','Zsolti','Práth','GTR-592') on duplicate key update driver_id = '45DRS20'")
                 .executeUpdate();
-        entityManager.createNativeQuery("INSERT into driver VALUES ('55HZS20','42','Márk','Vincze','LST-123') on duplicate key update driver_id = '55MV20'")
+        entityManager.createNativeQuery("INSERT into driver VALUES ('55HZS20','42','Márk','Vincze','GTT-592') on duplicate key update driver_id = '55HZS20'")
                 .executeUpdate();
-        entityManager.createNativeQuery("INSERT into driver VALUES ('55SATR','44','Bendeguz','Fodor','LST-123') on duplicate key update driver_id = '55MV20'")
+        entityManager.createNativeQuery("INSERT into driver VALUES ('55SATR','44','Bendeguz','Fodor','GTW-592') on duplicate key update driver_id = '55SATR'")
                 .executeUpdate();
 
     }

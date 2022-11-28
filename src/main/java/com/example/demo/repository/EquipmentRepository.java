@@ -11,6 +11,6 @@ import java.util.List;
 @Repository
 public interface EquipmentRepository extends JpaRepository<Equipment, Integer> {
 
-    @Query(value = "Select * From equiptment",nativeQuery = true)
+    @Query(value = "Select * From equipment",nativeQuery = true)
     List<Equipment> selectAll();
 }

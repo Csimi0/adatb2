@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
-@RequestMapping("vehicle")
+@RequestMapping("vehicles")
 @RequiredArgsConstructor
 
 public class VehicleController {
@@ -18,11 +18,11 @@ public class VehicleController {
     public void addVehicle(@RequestParam String licencePlate,@RequestParam String type, @RequestParam(required = false) String routeId,@RequestParam(required = false) int equipmentId ){
         vehicleService.addVehicle(licencePlate,type,routeId,equipmentId);
     }
-    @PatchMapping
+    @PostMapping("/update")
     public void updateVehicle(@RequestParam String licencePlate,@RequestParam(required = false) String type, @RequestParam(required = false) String routeId,@RequestParam(required = false) int equipmentId ){
         vehicleService.updateVehicleById(licencePlate, type, routeId,equipmentId);
     }
-    @DeleteMapping
+    @GetMapping("/delete")
     public void deleteVehicleById(@RequestParam String licencePlate){
         vehicleService.deleteVehicleById(licencePlate);
     }

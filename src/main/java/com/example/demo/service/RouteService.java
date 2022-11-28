@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.Route;
+import com.example.demo.entity.RouteWithStations;
 import com.example.demo.entity.Vehicle;
 import com.example.demo.repository.RouteRepository;
 import com.example.demo.repository.StationRepository;
@@ -47,14 +48,14 @@ public class RouteService {
         entityManager.createNativeQuery("DELETE FROM route WHERE route_id = (?)").setParameter(1,routeId).executeUpdate();
     }
 
-    public int findCountStationForRoute(){
+    public Integer findCountStationForRoute(){
         return routeRepository.findCountStationForRoute();
     }
 
     public Integer countRouteWithWifi(){
         return routeRepository.countVehicleWithWifi();
     }
-    public List<Route> selectAll(){
+        public List<RouteWithStations> selectAll(){
         return routeRepository.selectAll();
     }
 }

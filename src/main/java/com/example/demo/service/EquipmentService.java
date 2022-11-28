@@ -42,7 +42,7 @@ public class EquipmentService {
                 .executeUpdate();
         //a vehicle licence plate nem megy
     }
-    public void deleteEquipmentById(int equipmentId){
+    public void deleteEquipmentById(String equipmentId){
         entityManager.createNativeQuery("DELETE FROM equipment WHERE equipment_id=?").setParameter(1,equipmentId).executeUpdate();
     }
     public List<Equipment> selectAll(){

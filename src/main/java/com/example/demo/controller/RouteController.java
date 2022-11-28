@@ -1,29 +1,31 @@
 package com.example.demo.controller;
 
 import com.example.demo.service.RouteService;
+import com.example.demo.service.StationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
-@RequestMapping("route")
+@RequestMapping("routes")
 @RequiredArgsConstructor
 public class RouteController {
     private final RouteService routeService;
+    private final StationService stationService;
 
     @PostMapping
     public void addRoute(@RequestParam String routeId,
                          @RequestParam String stationId){
         routeService.addRouteStations(routeId,stationId);
     }
-    @PatchMapping
+    @PostMapping("/update")
     public void updateRouteStation(@RequestParam String routeId,
                                    @RequestParam String stationId,
                                    @RequestParam String updatedStationId){
         routeService.updateRouteStationsById(routeId, stationId, updatedStationId);
     }
-    @DeleteMapping
+    @GetMapping("/delete")
     public void deleteRouteById(@RequestParam int routeId){
         routeService.deleteRouteById(routeId);
     }
@@ -47,7 +49,7 @@ public class RouteController {
     }
     @GetMapping
     public ModelAndView selectAll(Model model){
-        model.addAttribute("routes",routeService.selectAll());
+        model.addAttribute("routeWithStations",routeService.selectAll());
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("routes.html");
         return modelAndView;

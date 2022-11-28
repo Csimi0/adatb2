@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
-@RequestMapping("equipment")
+@RequestMapping("equipments")
 @RequiredArgsConstructor
 public class EquipmentController {
     private final EquipmentService equipmentService;
@@ -21,7 +21,7 @@ public class EquipmentController {
                              @RequestParam boolean hasLowFloor) {
         equipmentService.addEquipment(equipmentId, hasTicketMachine, hasWifi, hasDigitalTracker, hasLowFloor);
     }
-    @PatchMapping
+    @PostMapping("/update")
     public void updateDriver(@RequestParam int equipmentId,
                              @RequestParam(required = false) boolean hasTicketMachine,
                              @RequestParam(required = false) boolean hasWifi,
@@ -30,8 +30,8 @@ public class EquipmentController {
         equipmentService.updateEquipmentById(equipmentId, hasTicketMachine, hasWifi, hasDigitalTracker,hasLowFloor);
     }
 
-    @DeleteMapping
-    public void deleteEquipmentById(@RequestParam int equipmentId) {
+    @GetMapping("/delete")
+    public void deleteEquipmentById(@RequestParam String equipmentId) {
         equipmentService.deleteEquipmentById(equipmentId);
     }
     @GetMapping

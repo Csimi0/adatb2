@@ -1,73 +1,90 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="ISO-8859-1">
+    <meta charset="ISO-8859-1">
 
-  <link rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/style.css}" href="/style.css">
 </head>
 <body>
+<div class="container-wrapper">
+    <div class="nav-menu">
+        <ul>
+            <li><a href="stations">Stations</a></li>
+            <li><a href="drivers">Drivers</a></li>
+            <li><a href="equipments">Equipments</a></li>
+            <li><a href="routes">Routes</a></li>
+            <li><a href="vehicles">Vehicles</a></li>
+            <li><a href="data-gen">Seed Database</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="row">
+            <h1 class="title"> List Equipments </h1>
+        </div>
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+            <tr>
+                <th> Equipment ID</th>
+                <th> TicketMachine</th>
+                <th> Wifi</th>
+                <th> DigitalTracker</th>
+                <th> LowFloor</th>
+            </tr>
+            </thead>
 
-<div class ="container">
-  <div class = "row">
-    <h1> List Equipments </h1>
-  </div>
-  <table class = "table table-striped table-bordered">
-    <thead class = "table-dark">
-    <tr>
-      <th> Equipment ID</th>
-      <th> TicketMachine</th>
-      <th> Wifi </th>
-      <th> DigitalTracker </th>
-      <th> LowFloor </th>
-    </tr>
-    </thead>
-
-    <tbody>
-    <tr th:each = "equipment: ${equipments}">
-      <td th:text = "${equipment.equipmentId}"></td>
-      <td th:text = "${equipment.hasTicketMachine}"></td>
-      <td th:text = "${equipment.hasWifi}"></td>
-      <td th:text = "${equipment.hasDigitalTracker}"></td>
-      <td th:text = "${equipment.hasLowFloor}"></td>
-
-
-      <td>
-        <a th:href = "@{/equipments/delete(equipmentId=${equipment.equipmentId})  }"class = "btn btn-danger">Delete</a>
-      </td>
-    </tr>
-    </tbody>
-
-  </table>
-</div>
-<div>
-  <h1>Create New Driver</h1>
+            <tbody>
+            <tr th:each="equipment: ${equipments}">
+                <td th:text="${equipment.equipmentId}"></td>
+                <td th:text="${equipment.hasTicketMachine}"></td>
+                <td th:text="${equipment.hasWifi}"></td>
+                <td th:text="${equipment.hasDigitalTracker}"></td>
+                <td th:text="${equipment.hasLowFloor}"></td>
 
 
-  <form method="post" th:action="@{/equipments}"  >
+                <td>
+                    <a th:href="@{/equipments/delete(equipmentId=${equipment.equipmentId})  }" class="button">Delete</a>
+                </td>
+            </tr>
+            </tbody>
 
-    <input id="equipmentId " placeholder="Equipment ID" required type="text" name="equipmentId"/>
-    <input id="hasTicketMachine" placeholder="TicketMachine" required type="text" name="hasTicketMachine"/>
-    <input id="hasWifi" placeholder="Wifi" required type="text" name="hasWifi"/>
-    <input id="hasDigitalTracker" placeholder="DigitalTracker" required type="text" name="hasDigitalTracker"/>
-    <input id="hasLowFloor" placeholder="LowFloor" required type="text" name="hasLowFloor"/>
-    <input type="submit" value="Create Equipment">
-  </form>
-</div>
-<div>
-  <h1>Update Driver By ID</h1>
+        </table>
+    </div>
+    <div>
+        <h1 class="title">Create New Driver</h1>
 
-  <form method="post" action="equipments/update"  >
-    <input id="updateequipmentId " placeholder="Equipment ID" required type="text" name="equipmentId"/>
-    <input id="updatehasTicketMachine" placeholder="TicketMachine" required type="text" name="hasTicketMachine"/>
-    <input id="updatehasWifi" placeholder="Wifi" required type="text" name="hasWifi"/>
-    <input id="updatehasDigitalTracker" placeholder="DigitalTracker" required type="text" name="hasDigitalTracker"/>
-    <input id="updatehasLowFloor" placeholder="LowFloor" required type="text" name="hasLowFloor"/>
-    <input  type="submit" value="Update Equipment ">
-  </form>
 
+        <form method="post" th:action="@{/equipments}">
+            <div class="input-wrapper">
+                <input id="equipmentId " placeholder="Equipment ID" required type="text" name="equipmentId"/>
+                <input id="hasTicketMachine" placeholder="TicketMachine" required type="text" name="hasTicketMachine"/>
+                <input id="hasWifi" placeholder="Wifi" required type="text" name="hasWifi"/>
+                <input id="hasDigitalTracker" placeholder="DigitalTracker" required type="text"
+                       name="hasDigitalTracker"/>
+                <input id="hasLowFloor" placeholder="LowFloor" required type="text" name="hasLowFloor"/>
+                <input class="button" type="submit" value="Create Equipment">
+            </div>
+        </form>
+    </div>
+    <div>
+        <h1 class="title">Update Driver By ID</h1>
+
+        <form method="post" action="equipments/update">
+            <div class="input-wrapper">
+                <input id="updateequipmentId " placeholder="Equipment ID" required type="text" name="equipmentId"/>
+                <input id="updatehasTicketMachine" placeholder="TicketMachine" required type="text"
+                       name="hasTicketMachine"/>
+                <input id="updatehasWifi" placeholder="Wifi" required type="text" name="hasWifi"/>
+                <input id="updatehasDigitalTracker" placeholder="DigitalTracker" required type="text"
+                       name="hasDigitalTracker"/>
+                <input id="updatehasLowFloor" placeholder="LowFloor" required type="text" name="hasLowFloor"/>
+                <input class="button" type="submit" value="Update Equipment "></div>
+        </form>
+
+    </div>
 </div>
 </body>
 <script>
